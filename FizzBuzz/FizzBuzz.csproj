@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="ComboBoxProblem.cs" />
     <Compile Include="InitializeControlProblem.cs" />
+    <Compile Include="LookupTableProblem.cs" />
     <Compile Include="ObjectOriented\Divisionable.cs" />
     <Compile Include="ObjectOriented\Factory.cs" />
     <Compile Include="Program.cs" />
