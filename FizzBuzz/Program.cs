@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms.VisualStyles;
 using FizzBuzz.ObjectOriented;
 
 namespace FizzBuzz
@@ -20,7 +21,7 @@ namespace FizzBuzz
             Enumerable.Range(1, 10).Select(v =>
             {
                 stopwatch.Restart();
-                Enumerable.Range(1, 25).ToList().ForEach(i => FizzBuzzOop());
+                Enumerable.Range(1, 25).ToList().ForEach(i => FizzBuzzTernary());
                 stopwatch.Stop();
                 return String.Format("Pass {0}: {1}", v, stopwatch.ElapsedMilliseconds);
             }).ToList().ForEach(Console.WriteLine);
@@ -182,6 +183,69 @@ namespace FizzBuzz
         private static void FizzBuzzOop()
         {
             Enumerable.Range(1, 100).ToList().ForEach(value => value.ToPrintable().Print());
+        }
+
+        //FizzBuzzNormal:
+        //Pass 1: 160
+        //Pass 2: 119
+        //Pass 3: 121
+        //Pass 4: 123
+        //Pass 5: 122
+        //Pass 6: 124
+        //Pass 7: 126
+        //Pass 8: 118
+        //Pass 9: 127
+        //Pass 10: 120
+        private static void FizzBuzzNormal()
+        {
+            const string fizz = "Fizz";
+            const string buzz = "Buzz";
+            for (var value = 1; value <= 100; value++)
+            {
+                var isBy3 = value % 3 == 0;
+                var isBy5 = value % 5 == 0;
+                if (isBy3)
+                {
+                    Console.Write(fizz);
+                }
+                if (isBy5)
+                {
+                    Console.Write(buzz);
+                }
+                if (!isBy3 && !isBy5)
+                {
+                    Console.Write(value);
+                }
+                Console.Write(Environment.NewLine);
+            }
+        }
+
+        //FizzBuzzNormal:
+        //Pass 1: 131
+        //Pass 2: 98
+        //Pass 3: 99
+        //Pass 4: 94
+        //Pass 5: 95
+        //Pass 6: 94
+        //Pass 7: 99
+        //Pass 8: 95
+        //Pass 9: 95
+        //Pass 10: 94
+        private static void FizzBuzzTernary()
+        {
+            const string fizz = "Fizz";
+            const string buzz = "Buzz";
+            const string fizzBuzz = fizz + buzz;
+            for (var value = 1; value <= 100; value++)
+            {
+                var isBy3 = value % 3 == 0;
+                var isBy5 = value % 5 == 0;
+                Console.WriteLine(
+                (isBy3 && isBy5) ? fizzBuzz :
+                isBy3 ? fizz :
+                isBy5 ? buzz :
+                value.ToString(CultureInfo.InvariantCulture));
+            }
         }
 
         //FizzBuzzInternet:
