@@ -48,8 +48,12 @@
     <Compile Include="ComboBoxProblem.cs" />
     <Compile Include="InitializeControlProblem.cs" />
     <Compile Include="LookupTableProblem.cs" />
-    <Compile Include="ObjectOriented\Divisionable.cs" />
+    <Compile Include="ObjectOriented\Buzz.cs" />
+    <Compile Include="ObjectOriented\Divisible.cs" />
+    <Compile Include="ObjectOriented\Element.cs" />
     <Compile Include="ObjectOriented\Factory.cs" />
+    <Compile Include="ObjectOriented\Fizz.cs" />
+    <Compile Include="ObjectOriented\IPrintable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using FizzBuzz.ObjectOriented;
 
 namespace FizzBuzz
 {
@@ -19,7 +20,7 @@ namespace FizzBuzz
             Enumerable.Range(1, 10).Select(v =>
             {
                 stopwatch.Restart();
-                Enumerable.Range(1, 25).ToList().ForEach(i => FizzBuzzInternet());
+                Enumerable.Range(1, 25).ToList().ForEach(i => FizzBuzzOop());
                 stopwatch.Stop();
                 return String.Format("Pass {0}: {1}", v, stopwatch.ElapsedMilliseconds);
             }).ToList().ForEach(Console.WriteLine);
@@ -165,6 +166,22 @@ namespace FizzBuzz
                 .Replace(vn => vn.Value.IsDivisibleBy(5), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Buzz") })
                 .Select(vn => String.IsNullOrEmpty(vn.Name) ? vn.Value.ToString(CultureInfo.InvariantCulture) : vn.Name)
                 .ToList().ForEach(Console.WriteLine);
+        }
+
+        //FizzBuzzOop:
+        //Pass 1: 141
+        //Pass 2: 94
+        //Pass 3: 83
+        //Pass 4: 100
+        //Pass 5: 100
+        //Pass 6: 100
+        //Pass 7: 100
+        //Pass 8: 100
+        //Pass 9: 100
+        //Pass 10: 99
+        private static void FizzBuzzOop()
+        {
+            Enumerable.Range(1, 100).ToList().ForEach(value => value.ToPrintable().Print());
         }
 
         //FizzBuzzInternet:
