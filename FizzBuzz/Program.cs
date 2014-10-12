@@ -21,7 +21,7 @@ namespace FizzBuzz
             Enumerable.Range(1, 10).Select(v =>
             {
                 stopwatch.Restart();
-                Enumerable.Range(1, 25).ToList().ForEach(i => FizzBuzzTernary());
+                Enumerable.Range(1, 25).ToList().ForEach(i => FizzBuzz7());
                 stopwatch.Stop();
                 return String.Format("Pass {0}: {1}", v, stopwatch.ElapsedMilliseconds);
             }).ToList().ForEach(Console.WriteLine);
@@ -169,6 +169,27 @@ namespace FizzBuzz
                 .ToList().ForEach(Console.WriteLine);
         }
 
+        //FizzBuzz7:
+        //Pass 1: 136
+        //Pass 2: 80
+        //Pass 3: 83
+        //Pass 4: 84
+        //Pass 5: 87
+        //Pass 6: 88
+        //Pass 7: 88
+        //Pass 8: 90
+        //Pass 9: 87
+        //Pass 10: 89
+        private static void FizzBuzz7()
+        {
+            Enumerable.Range(1, 100)
+                .Select(v => new { Value = v, Name = String.Empty })
+                .Replace(vn => vn.Value.IsDivisibleBy(3), vn => new { vn.Value, Name = vn.Name.JoinExt(String.Empty, "Fizz") })
+                .Replace(vn => vn.Value.IsDivisibleBy(5), vn => new { vn.Value, Name = vn.Name.JoinExt(String.Empty, "Buzz") })
+                .Select(vn => vn.Name.IfNullOrEmptyThenDefault(vn.Value.ToStringInvariant()))
+                .ForEach(Console.WriteLine);
+        }
+
         //FizzBuzzOop:
         //Pass 1: 141
         //Pass 2: 94
@@ -220,7 +241,7 @@ namespace FizzBuzz
             }
         }
 
-        //FizzBuzzNormal:
+        //FizzBuzzTernary:
         //Pass 1: 131
         //Pass 2: 98
         //Pass 3: 99
@@ -297,6 +318,11 @@ namespace FizzBuzz
         {
             return (value % divisor) == 0;
         }
+
+        public static string ToStringInvariant(this int value)
+        {
+            return value.ToString(CultureInfo.InvariantCulture);
+        }
     }
 
     public static class EnumerableExtensions
@@ -309,6 +335,34 @@ namespace FizzBuzz
         public static IEnumerable<TSource> Replace<TSource>(this IEnumerable<TSource> source, Func<TSource, int, bool> predicate, Func<TSource, int, TSource> replacer)
         {
             return source.Select((s, i) => predicate(s, i) ? replacer(s, i) : s);
+        }
+
+        public static void ForEach<TSource>(this IEnumerable<TSource> source, Action<TSource> action)
+        {
+            foreach (var value in source)
+            {
+                action(value);
+            }
+        }
+    }
+
+    public static class StringExtensions
+    {
+        public static bool IsNullOrEmpty(this string value)
+        {
+            return String.IsNullOrEmpty(value);
+        }
+
+        public static string IfNullOrEmptyThenDefault(this string value, string defaultValue)
+        {
+            return value.IsNullOrEmpty() ? defaultValue : value;
+        }
+
+        public static string JoinExt(this string value, string separator, params string[] values)
+        {
+            var combinedList = values.ToList();
+            combinedList.Insert(0, value);
+            return String.Join(separator, combinedList);
         }
     }
 
