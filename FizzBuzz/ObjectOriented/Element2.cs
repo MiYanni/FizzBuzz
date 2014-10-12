@@ -33,6 +33,11 @@ namespace FizzBuzz.ObjectOriented
             Value = value;
             Representation = representation;
         }
+
+        public override string ToString()
+        {
+            return Representation;
+        }
     }
 
     internal static class Element2Extensions

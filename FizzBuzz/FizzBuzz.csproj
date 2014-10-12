@@ -52,6 +52,7 @@
     <Compile Include="ObjectOriented\Divisible.cs" />
     <Compile Include="ObjectOriented\Element.cs" />
     <Compile Include="ObjectOriented\Element2.cs" />
+    <Compile Include="ObjectOriented\Element3.cs" />
     <Compile Include="ObjectOriented\Factory.cs" />
     <Compile Include="ObjectOriented\Fizz.cs" />
     <Compile Include="ObjectOriented\FizzBuzz.cs" />
