@@ -21,7 +21,7 @@ namespace FizzBuzz
             Enumerable.Range(1, 10).Select(v =>
             {
                 stopwatch.Restart();
-                Enumerable.Range(1, 25).ToList().ForEach(i => FizzBuzz7());
+                Enumerable.Range(1, 25).ToList().ForEach(i => FizzBuzzOop2());
                 stopwatch.Stop();
                 return String.Format("Pass {0}: {1}", v, stopwatch.ElapsedMilliseconds);
             }).ToList().ForEach(Console.WriteLine);
@@ -204,6 +204,22 @@ namespace FizzBuzz
         private static void FizzBuzzOop()
         {
             Enumerable.Range(1, 100).ToList().ForEach(value => value.ToPrintable().Print());
+        }
+
+        //FizzBuzzOop2:
+        //Pass 1: 129
+        //Pass 2: 86
+        //Pass 3: 81
+        //Pass 4: 79
+        //Pass 5: 80
+        //Pass 6: 79
+        //Pass 7: 82
+        //Pass 8: 82
+        //Pass 9: 80
+        //Pass 10: 80
+        private static void FizzBuzzOop2()
+        {
+            Enumerable.Range(1, 100).Select(value => new Element2(value)).ForEach(Element2Extensions.Print);
         }
 
         //FizzBuzzNormal:

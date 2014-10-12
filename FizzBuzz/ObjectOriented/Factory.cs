@@ -22,6 +22,7 @@ namespace FizzBuzz.ObjectOriented
             var decider = new List<KeyValuePair<bool, IPrintable>>
             {
                 // TODO: Simplify the syntax to allow {key, value} initialization.
+                new KeyValuePair<bool, IPrintable>(value.IsDivisible(3) && value.IsDivisible(5), new FizzBuzz(value)),
                 new KeyValuePair<bool, IPrintable>(value.IsDivisible(3), new Fizz(value)),
                 new KeyValuePair<bool, IPrintable>(value.IsDivisible(5), new Buzz(value)),
                 new KeyValuePair<bool, IPrintable>(true, new Element(value))
