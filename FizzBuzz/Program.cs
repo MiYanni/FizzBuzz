@@ -21,7 +21,7 @@ namespace FizzBuzz
             Enumerable.Range(1, 10).Select(v =>
             {
                 stopwatch.Restart();
-                Enumerable.Range(1, 25).ToList().ForEach(i => FizzBuzzOop3());
+                Enumerable.Range(1, 25).ToList().ForEach(i => FizzBuzzTernary2());
                 stopwatch.Stop();
                 return String.Format("Pass {0}: {1}", v, stopwatch.ElapsedMilliseconds);
             }).ToList().ForEach(Console.WriteLine);
@@ -299,6 +299,24 @@ namespace FizzBuzz
                 isBy5 ? buzz :
                 value.ToString(CultureInfo.InvariantCulture));
             }
+        }
+
+        //FizzBuzzTernary2:
+        //Pass 1: 127
+        //Pass 2: 95
+        //Pass 3: 80
+        //Pass 4: 79
+        //Pass 5: 81
+        //Pass 6: 82
+        //Pass 7: 85
+        //Pass 8: 89
+        //Pass 9: 81
+        //Pass 10: 79
+        private static void FizzBuzzTernary2()
+        {
+            var createFizzBuzz = new Func<int, string>(value => 
+                (value % 3 == 0 ? "Fizz" : String.Empty).JoinExt(String.Empty, value % 5 == 0 ? "Buzz" : String.Empty));
+            for (var i = 1; i <= 100; Console.WriteLine((createFizzBuzz(i).IsNullOrEmpty() ? i.ToStringInvariant() : createFizzBuzz(i)), ++i)) {}
         }
 
         //FizzBuzzInternet:
