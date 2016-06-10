@@ -9,8 +9,8 @@ using FizzBuzz.ObjectOriented;
 
 namespace FizzBuzz
 {
-    // Write a program that prints the numbers from 1 to 100. 
-    // But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. 
+    // Write a program that prints the numbers from 1 to 100.
+    // But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”.
     // For numbers which are multiples of both three and five print “FizzBuzz”.
     // http://c2.com/cgi/wiki?FizzBuzzTest
     internal class Program
@@ -21,7 +21,7 @@ namespace FizzBuzz
             Enumerable.Range(1, 10).Select(v =>
             {
                 stopwatch.Restart();
-                Enumerable.Range(1, 25).ToList().ForEach(i => FizzBuzzTernary2());
+                Enumerable.Range(1, 25).ToList().ForEach(i => PrintNumbers2());
                 stopwatch.Stop();
                 return String.Format("Pass {0}: {1}", v, stopwatch.ElapsedMilliseconds);
             }).ToList().ForEach(Console.WriteLine);
@@ -238,6 +238,53 @@ namespace FizzBuzz
             Enumerable.Range(1, 100).Select(value => new Element3(value)).ForEach(Console.WriteLine);
         }
 
+        //FizzBuzzOop4:
+        //Pass 1: 137
+        //Pass 2: 80
+        //Pass 3: 80
+        //Pass 4: 77
+        //Pass 5: 78
+        //Pass 6: 80
+        //Pass 7: 78
+        //Pass 8: 81
+        //Pass 9: 78
+        //Pass 10: 76
+        private static void FizzBuzzOop4()
+        {
+            Enumerable.Range(1, 100).Select(value => new FizzBuzzElement4(value)).ForEach(Console.WriteLine);
+        }
+
+        //FizzBuzzOop5:
+        //Pass 1: 136
+        //Pass 2: 81
+        //Pass 3: 78
+        //Pass 4: 78
+        //Pass 5: 81
+        //Pass 6: 79
+        //Pass 7: 78
+        //Pass 8: 82
+        //Pass 9: 79
+        //Pass 10: 80
+        private static void FizzBuzzOop5()
+        {
+            Enumerable.Range(1, 100).Select(value => new FizzBuzzElement5(value)).ForEach(Console.WriteLine);
+        }
+
+        // TIME WHILE PLUGGED IN
+        private static void PrintNumbers()
+        {
+            Enumerable.Range(1, 100).ForEach(Console.WriteLine);
+        }
+
+        // TIME WHILE PLUGGED IN
+        private static void PrintNumbers2()
+        {
+            for (var i = 1; i <= 100; ++i)
+            {
+                Console.WriteLine(i);
+            }
+        }
+
         //FizzBuzzNormal:
         //Pass 1: 160
         //Pass 2: 119
@@ -314,9 +361,9 @@ namespace FizzBuzz
         //Pass 10: 79
         private static void FizzBuzzTernary2()
         {
-            var createFizzBuzz = new Func<int, string>(value => 
+            var createFizzBuzz = new Func<int, string>(value =>
                 (value % 3 == 0 ? "Fizz" : String.Empty).JoinExt(String.Empty, value % 5 == 0 ? "Buzz" : String.Empty));
-            for (var i = 1; i <= 100; Console.WriteLine((createFizzBuzz(i).IsNullOrEmpty() ? i.ToStringInvariant() : createFizzBuzz(i)), ++i)) {}
+            for (var i = 1; i <= 100; Console.WriteLine((createFizzBuzz(i).IsNullOrEmpty() ? i.ToStringInvariant() : createFizzBuzz(i)), ++i)) { }
         }
 
         //FizzBuzzInternet:

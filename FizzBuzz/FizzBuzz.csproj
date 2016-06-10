@@ -56,6 +56,8 @@
     <Compile Include="ObjectOriented\Factory.cs" />
     <Compile Include="ObjectOriented\Fizz.cs" />
     <Compile Include="ObjectOriented\FizzBuzz.cs" />
+    <Compile Include="ObjectOriented\FizzBuzzElement4.cs" />
+    <Compile Include="ObjectOriented\FizzBuzzElement5.cs" />
     <Compile Include="ObjectOriented\IPrintable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
