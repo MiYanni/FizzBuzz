@@ -365,6 +365,20 @@ namespace FizzBuzz
                 (value % 3 == 0 ? "Fizz" : String.Empty).JoinExt(String.Empty, value % 5 == 0 ? "Buzz" : String.Empty));
             for (var i = 1; i <= 100; Console.WriteLine((createFizzBuzz(i).IsNullOrEmpty() ? i.ToStringInvariant() : createFizzBuzz(i)), ++i)) { }
         }
+        
+        // NOT TIMED YET.
+        private static void FizzBuzzFuncBasic()
+        {
+            Enumerable.Range(1, 100).Select(i => {
+                if (i%3 == 0 && i%5 == 0)
+                    return "FizzBuzz";
+                if (i%3 == 0)
+                    return "Fizz";
+                if (i%5 == 0)
+                    return "Buzz";
+                return i.ToString(CultureInfo.InvariantCulture);
+            }).ForEach(i => Debug.WriteLine(i));
+        }
 
         //FizzBuzzInternet:
         //Pass 1: 138
