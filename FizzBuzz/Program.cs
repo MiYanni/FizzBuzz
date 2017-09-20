@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Globalization;
 using System.Linq;
+using FizzBuzz.Extensions;
 using FizzBuzz.ObjectOriented;
 
 namespace FizzBuzz
@@ -27,166 +28,166 @@ namespace FizzBuzz
             Console.ReadKey();
         }
 
-        //FizzBuzz1:
-        //Pass 1: 162
-        //Pass 2: 80
-        //Pass 3: 86
-        //Pass 4: 97
-        //Pass 5: 79
-        //Pass 6: 83
-        //Pass 7: 87
-        //Pass 8: 84
-        //Pass 9: 83
-        //Pass 10: 82
-        private static void FizzBuzz1()
-        {
-            Enumerable.Range(1, 100)
-                .Replace(v => v.IsDivisibleBy(15), v => -11)
-                .Replace(v => v.IsDivisibleBy(5), v => -7)
-                .Replace(v => v.IsDivisibleBy(3), v => -2)
-                .Select(v => v.ToString(CultureInfo.InvariantCulture))
-                .Replace(s => s.Equals("-2"), s => "Fizz")
-                .Replace(s => s.Equals("-7"), s => "Buzz")
-                .Replace(s => s.Equals("-11"), s => "FizzBuzz")
-                .ToList().ForEach(Console.WriteLine);
-        }
+        ////FizzBuzz1:
+        ////Pass 1: 162
+        ////Pass 2: 80
+        ////Pass 3: 86
+        ////Pass 4: 97
+        ////Pass 5: 79
+        ////Pass 6: 83
+        ////Pass 7: 87
+        ////Pass 8: 84
+        ////Pass 9: 83
+        ////Pass 10: 82
+        //private static void FizzBuzz1()
+        //{
+        //    Enumerable.Range(1, 100)
+        //        .Replace(v => v.IsDivisibleBy(15), v => -11)
+        //        .Replace(v => v.IsDivisibleBy(5), v => -7)
+        //        .Replace(v => v.IsDivisibleBy(3), v => -2)
+        //        .Select(v => v.ToString(CultureInfo.InvariantCulture))
+        //        .Replace(s => s.Equals("-2"), s => "Fizz")
+        //        .Replace(s => s.Equals("-7"), s => "Buzz")
+        //        .Replace(s => s.Equals("-11"), s => "FizzBuzz")
+        //        .ToList().ForEach(Console.WriteLine);
+        //}
 
-        //FizzBuzz2:
-        //Pass 1: 161
-        //Pass 2: 83
-        //Pass 3: 81
-        //Pass 4: 80
-        //Pass 5: 79
-        //Pass 6: 82
-        //Pass 7: 85
-        //Pass 8: 78
-        //Pass 9: 79
-        //Pass 10: 82
-        private static void FizzBuzz2()
-        {
-            Enumerable.Range(1, 100)
-                .Select(v => new { Value = v, Name = String.Empty })
-                .Replace(vn => vn.Value.IsDivisibleBy(3), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Fizz") })
-                .Replace(vn => vn.Value.IsDivisibleBy(5), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Buzz") })
-                .Replace(vn => String.IsNullOrEmpty(vn.Name), vn => new { vn.Value, Name = vn.Value.ToString(CultureInfo.InvariantCulture) })
-                .Select(vn => vn.Name)
-                .ToList().ForEach(Console.WriteLine);
-        }
+        ////FizzBuzz2:
+        ////Pass 1: 161
+        ////Pass 2: 83
+        ////Pass 3: 81
+        ////Pass 4: 80
+        ////Pass 5: 79
+        ////Pass 6: 82
+        ////Pass 7: 85
+        ////Pass 8: 78
+        ////Pass 9: 79
+        ////Pass 10: 82
+        //private static void FizzBuzz2()
+        //{
+        //    Enumerable.Range(1, 100)
+        //        .Select(v => new { Value = v, Name = String.Empty })
+        //        .Replace(vn => vn.Value.IsDivisibleBy(3), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Fizz") })
+        //        .Replace(vn => vn.Value.IsDivisibleBy(5), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Buzz") })
+        //        .Replace(vn => String.IsNullOrEmpty(vn.Name), vn => new { vn.Value, Name = vn.Value.ToString(CultureInfo.InvariantCulture) })
+        //        .Select(vn => vn.Name)
+        //        .ToList().ForEach(Console.WriteLine);
+        //}
 
-        //FizzBuzz3:
-        //Pass 1: 152
-        //Pass 2: 86
-        //Pass 3: 81
-        //Pass 4: 82
-        //Pass 5: 99
-        //Pass 6: 85
-        //Pass 7: 87
-        //Pass 8: 81
-        //Pass 9: 91
-        //Pass 10: 91
-        private static void FizzBuzz3()
-        {
-            (new int[100])
-                .Select((v, i) => new { Value = i + 1, Name = String.Empty })
-                .Replace(vn => vn.Value.IsDivisibleBy(3), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Fizz") })
-                .Replace(vn => vn.Value.IsDivisibleBy(5), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Buzz") })
-                .Replace(vn => String.IsNullOrEmpty(vn.Name), vn => new { vn.Value, Name = vn.Value.ToString(CultureInfo.InvariantCulture) })
-                .Select(vn => vn.Name)
-                .ToList().ForEach(Console.WriteLine);
-        }
+        ////FizzBuzz3:
+        ////Pass 1: 152
+        ////Pass 2: 86
+        ////Pass 3: 81
+        ////Pass 4: 82
+        ////Pass 5: 99
+        ////Pass 6: 85
+        ////Pass 7: 87
+        ////Pass 8: 81
+        ////Pass 9: 91
+        ////Pass 10: 91
+        //private static void FizzBuzz3()
+        //{
+        //    (new int[100])
+        //        .Select((v, i) => new { Value = i + 1, Name = String.Empty })
+        //        .Replace(vn => vn.Value.IsDivisibleBy(3), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Fizz") })
+        //        .Replace(vn => vn.Value.IsDivisibleBy(5), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Buzz") })
+        //        .Replace(vn => String.IsNullOrEmpty(vn.Name), vn => new { vn.Value, Name = vn.Value.ToString(CultureInfo.InvariantCulture) })
+        //        .Select(vn => vn.Name)
+        //        .ToList().ForEach(Console.WriteLine);
+        //}
 
-        private sealed class ValueName
-        {
-            public int Value { get; set; }
+        //private sealed class ValueName
+        //{
+        //    public int Value { get; set; }
 
-            public string Name { get; set; }
-        }
+        //    public string Name { get; set; }
+        //}
 
-        //FizzBuzz4:
-        //Pass 1: 175
-        //Pass 2: 89
-        //Pass 3: 83
-        //Pass 4: 82
-        //Pass 5: 84
-        //Pass 6: 86
-        //Pass 7: 86
-        //Pass 8: 86
-        //Pass 9: 88
-        //Pass 10: 85
-        private static void FizzBuzz4()
-        {
-            Enumerable.Range(1, 100)
-                .Select(v => new ValueName { Value = v, Name = String.Empty })
-                .Replace(vn => vn.Value.IsDivisibleBy(3), vn => { vn.Name += "Fizz"; return vn; })
-                .Replace(vn => vn.Value.IsDivisibleBy(5), vn => { vn.Name += "Buzz"; return vn; })
-                .Replace(vn => String.IsNullOrEmpty(vn.Name), vn => { vn.Name = vn.Value.ToString(CultureInfo.InvariantCulture); return vn; })
-                .Select(vn => vn.Name)
-                .ToList().ForEach(Console.WriteLine);
-        }
+        ////FizzBuzz4:
+        ////Pass 1: 175
+        ////Pass 2: 89
+        ////Pass 3: 83
+        ////Pass 4: 82
+        ////Pass 5: 84
+        ////Pass 6: 86
+        ////Pass 7: 86
+        ////Pass 8: 86
+        ////Pass 9: 88
+        ////Pass 10: 85
+        //private static void FizzBuzz4()
+        //{
+        //    Enumerable.Range(1, 100)
+        //        .Select(v => new ValueName { Value = v, Name = String.Empty })
+        //        .Replace(vn => vn.Value.IsDivisibleBy(3), vn => { vn.Name += "Fizz"; return vn; })
+        //        .Replace(vn => vn.Value.IsDivisibleBy(5), vn => { vn.Name += "Buzz"; return vn; })
+        //        .Replace(vn => String.IsNullOrEmpty(vn.Name), vn => { vn.Name = vn.Value.ToString(CultureInfo.InvariantCulture); return vn; })
+        //        .Select(vn => vn.Name)
+        //        .ToList().ForEach(Console.WriteLine);
+        //}
 
-        //FizzBuzz5:
-        //Pass 1: 171
-        //Pass 2: 92
-        //Pass 3: 81
-        //Pass 4: 81
-        //Pass 5: 82
-        //Pass 6: 84
-        //Pass 7: 90
-        //Pass 8: 85
-        //Pass 9: 84
-        //Pass 10: 85
-        private static void FizzBuzz5()
-        {
-            Enumerable.Range(1, 100)
-                .Select(v => new ValueName { Value = v, Name = String.Empty })
-                .Replace(vn => vn.Value.IsDivisibleBy(3), vn => { vn.Name = String.Join(String.Empty, vn.Name, "Fizz"); return vn; })
-                .Replace(vn => vn.Value.IsDivisibleBy(5), vn => { vn.Name = String.Join(String.Empty, vn.Name, "Buzz"); return vn; })
-                .Replace(vn => String.IsNullOrEmpty(vn.Name), vn => { vn.Name = vn.Value.ToString(CultureInfo.InvariantCulture); return vn; })
-                .Select(vn => vn.Name)
-                .ToList().ForEach(Console.WriteLine);
-        }
+        ////FizzBuzz5:
+        ////Pass 1: 171
+        ////Pass 2: 92
+        ////Pass 3: 81
+        ////Pass 4: 81
+        ////Pass 5: 82
+        ////Pass 6: 84
+        ////Pass 7: 90
+        ////Pass 8: 85
+        ////Pass 9: 84
+        ////Pass 10: 85
+        //private static void FizzBuzz5()
+        //{
+        //    Enumerable.Range(1, 100)
+        //        .Select(v => new ValueName { Value = v, Name = String.Empty })
+        //        .Replace(vn => vn.Value.IsDivisibleBy(3), vn => { vn.Name = String.Join(String.Empty, vn.Name, "Fizz"); return vn; })
+        //        .Replace(vn => vn.Value.IsDivisibleBy(5), vn => { vn.Name = String.Join(String.Empty, vn.Name, "Buzz"); return vn; })
+        //        .Replace(vn => String.IsNullOrEmpty(vn.Name), vn => { vn.Name = vn.Value.ToString(CultureInfo.InvariantCulture); return vn; })
+        //        .Select(vn => vn.Name)
+        //        .ToList().ForEach(Console.WriteLine);
+        //}
 
-        //FizzBuzz6:
-        //Pass 1: 150
-        //Pass 2: 85
-        //Pass 3: 84
-        //Pass 4: 84
-        //Pass 5: 83
-        //Pass 6: 84
-        //Pass 7: 99
-        //Pass 8: 89
-        //Pass 9: 83
-        //Pass 10: 82
-        private static void FizzBuzz6()
-        {
-            Enumerable.Range(1, 100)
-                .Select(v => new { Value = v, Name = String.Empty })
-                .Replace(vn => vn.Value.IsDivisibleBy(3), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Fizz") })
-                .Replace(vn => vn.Value.IsDivisibleBy(5), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Buzz") })
-                .Select(vn => String.IsNullOrEmpty(vn.Name) ? vn.Value.ToString(CultureInfo.InvariantCulture) : vn.Name)
-                .ToList().ForEach(Console.WriteLine);
-        }
+        ////FizzBuzz6:
+        ////Pass 1: 150
+        ////Pass 2: 85
+        ////Pass 3: 84
+        ////Pass 4: 84
+        ////Pass 5: 83
+        ////Pass 6: 84
+        ////Pass 7: 99
+        ////Pass 8: 89
+        ////Pass 9: 83
+        ////Pass 10: 82
+        //private static void FizzBuzz6()
+        //{
+        //    Enumerable.Range(1, 100)
+        //        .Select(v => new { Value = v, Name = String.Empty })
+        //        .Replace(vn => vn.Value.IsDivisibleBy(3), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Fizz") })
+        //        .Replace(vn => vn.Value.IsDivisibleBy(5), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Buzz") })
+        //        .Select(vn => String.IsNullOrEmpty(vn.Name) ? vn.Value.ToString(CultureInfo.InvariantCulture) : vn.Name)
+        //        .ToList().ForEach(Console.WriteLine);
+        //}
 
-        //FizzBuzz7:
-        //Pass 1: 136
-        //Pass 2: 80
-        //Pass 3: 83
-        //Pass 4: 84
-        //Pass 5: 87
-        //Pass 6: 88
-        //Pass 7: 88
-        //Pass 8: 90
-        //Pass 9: 87
-        //Pass 10: 89
-        private static void FizzBuzz7()
-        {
-            Enumerable.Range(1, 100)
-                .Select(v => new { Value = v, Name = String.Empty })
-                .Replace(vn => vn.Value.IsDivisibleBy(3), vn => new { vn.Value, Name = vn.Name.JoinExt(String.Empty, "Fizz") })
-                .Replace(vn => vn.Value.IsDivisibleBy(5), vn => new { vn.Value, Name = vn.Name.JoinExt(String.Empty, "Buzz") })
-                .Select(vn => vn.Name.IfNullOrEmptyThenDefault(vn.Value.ToStringInvariant()))
-                .ForEach(Console.WriteLine);
-        }
+        ////FizzBuzz7:
+        ////Pass 1: 136
+        ////Pass 2: 80
+        ////Pass 3: 83
+        ////Pass 4: 84
+        ////Pass 5: 87
+        ////Pass 6: 88
+        ////Pass 7: 88
+        ////Pass 8: 90
+        ////Pass 9: 87
+        ////Pass 10: 89
+        //private static void FizzBuzz7()
+        //{
+        //    Enumerable.Range(1, 100)
+        //        .Select(v => new { Value = v, Name = String.Empty })
+        //        .Replace(vn => vn.Value.IsDivisibleBy(3), vn => new { vn.Value, Name = vn.Name.JoinExt(String.Empty, "Fizz") })
+        //        .Replace(vn => vn.Value.IsDivisibleBy(5), vn => new { vn.Value, Name = vn.Name.JoinExt(String.Empty, "Buzz") })
+        //        .Select(vn => vn.Name.IfNullOrEmptyThenDefault(vn.Value.ToStringInvariant()))
+        //        .ForEach(Console.WriteLine);
+        //}
 
         //FizzBuzzOop:
         //Pass 1: 141
@@ -421,59 +422,59 @@ namespace FizzBuzz
         }
     }
 
-    public static class NumericExtensions
-    {
-        public static bool IsDivisibleBy(this int value, int divisor)
-        {
-            return (value % divisor) == 0;
-        }
+    //public static class NumericExtensions
+    //{
+    //    public static bool IsDivisibleBy(this int value, int divisor)
+    //    {
+    //        return (value % divisor) == 0;
+    //    }
 
-        public static string ToStringInvariant(this int value)
-        {
-            return value.ToString(CultureInfo.InvariantCulture);
-        }
-    }
+    //    public static string ToStringInvariant(this int value)
+    //    {
+    //        return value.ToString(CultureInfo.InvariantCulture);
+    //    }
+    //}
 
-    public static class EnumerableExtensions
-    {
-        public static IEnumerable<TSource> Replace<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate, Func<TSource, TSource> replacer)
-        {
-            return source.Select(s => predicate(s) ? replacer(s) : s);
-        }
+    //public static class EnumerableExtensions
+    //{
+    //    public static IEnumerable<TSource> Replace<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate, Func<TSource, TSource> replacer)
+    //    {
+    //        return source.Select(s => predicate(s) ? replacer(s) : s);
+    //    }
 
-        public static IEnumerable<TSource> Replace<TSource>(this IEnumerable<TSource> source, Func<TSource, int, bool> predicate, Func<TSource, int, TSource> replacer)
-        {
-            return source.Select((s, i) => predicate(s, i) ? replacer(s, i) : s);
-        }
+    //    public static IEnumerable<TSource> Replace<TSource>(this IEnumerable<TSource> source, Func<TSource, int, bool> predicate, Func<TSource, int, TSource> replacer)
+    //    {
+    //        return source.Select((s, i) => predicate(s, i) ? replacer(s, i) : s);
+    //    }
 
-        public static void ForEach<TSource>(this IEnumerable<TSource> source, Action<TSource> action)
-        {
-            foreach (var value in source)
-            {
-                action(value);
-            }
-        }
-    }
+    //    public static void ForEach<TSource>(this IEnumerable<TSource> source, Action<TSource> action)
+    //    {
+    //        foreach (var value in source)
+    //        {
+    //            action(value);
+    //        }
+    //    }
+    //}
 
-    public static class StringExtensions
-    {
-        public static bool IsNullOrEmpty(this string value)
-        {
-            return String.IsNullOrEmpty(value);
-        }
+    //public static class StringExtensions
+    //{
+    //    public static bool IsNullOrEmpty(this string value)
+    //    {
+    //        return String.IsNullOrEmpty(value);
+    //    }
 
-        public static string IfNullOrEmptyThenDefault(this string value, string defaultValue)
-        {
-            return value.IsNullOrEmpty() ? defaultValue : value;
-        }
+    //    public static string IfNullOrEmptyThenDefault(this string value, string defaultValue)
+    //    {
+    //        return value.IsNullOrEmpty() ? defaultValue : value;
+    //    }
 
-        public static string JoinExt(this string value, string separator, params string[] values)
-        {
-            var combinedList = values.ToList();
-            combinedList.Insert(0, value);
-            return String.Join(separator, combinedList);
-        }
-    }
+    //    public static string JoinExt(this string value, string separator, params string[] values)
+    //    {
+    //        var combinedList = values.ToList();
+    //        combinedList.Insert(0, value);
+    //        return String.Join(separator, combinedList);
+    //    }
+    //}
 
     public delegate void ActionOut<T>(out T obj);
 
@@ -481,8 +482,7 @@ namespace FizzBuzz
     {
         public static T ReturnOut<T>(this ActionOut<T> method)
         {
-            T result;
-            method(out result);
+            method(out T result);
             return result;
         }
 
@@ -495,6 +495,38 @@ namespace FizzBuzz
         private static void TestMethod(out int cake)
         {
             cake = 42;
+        }
+    }
+
+    //https://stackoverflow.com/questions/22814262/c-sharp-extension-method-for-a-method-group/46330225#46330225
+    public static class MethodExtensions2
+    {
+        public static Func<TKey, TVal> AddCaching<TKey, TVal>(this Func<TKey, TVal> fetcher)
+        {
+            var cache = new Dictionary<TKey, TVal>();
+            return k =>
+            {
+                if (!cache.ContainsKey(k)) cache[k] = fetcher(k);
+                return cache[k];
+            };
+        }
+
+        public static void Test()
+        {
+            // Works
+            var withCache = ((Func<int, int>)Next).AddCaching();
+            withCache = new Func<int, int>(Next).AddCaching();
+            withCache = AddCaching<int, int>(Next);
+
+            // Doesn't work :(
+            withCache = ((Func<int, int>)Next).AddCaching<int,int>();
+            Func<int,int> withCache2 = ((Func <int, int>)Next).AddCaching();
+        }
+
+        public static int Next(int n)
+        {
+            Console.WriteLine("Called Next(" + n + ")");
+            return n + 1;
         }
     }
 }
