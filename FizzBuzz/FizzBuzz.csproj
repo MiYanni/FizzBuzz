@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\EnumerableExtensions.cs" />
-    <Compile Include="Extensions\Functional.cs" />
+    <Compile Include="Other\Functional.cs" />
     <Compile Include="Extensions\NumericExtensionscs.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="ObjectOriented\Object5.cs" />
@@ -67,6 +67,7 @@
     <Compile Include="ObjectOriented\Oop1\IPrintable.cs" />
     <Compile Include="ObjectOriented\Oop1\PrintExtensions.cs" />
     <Compile Include="ObjectOriented\Oop2\PrintExtensions.cs" />
+    <Compile Include="Other\MethodExtensions.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SingleStatement\Single7.cs" />
