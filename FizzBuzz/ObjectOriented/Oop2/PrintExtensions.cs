@@ -2,9 +2,9 @@
 
 namespace FizzBuzz.ObjectOriented.Oop2
 {
-    internal static class Oop2Extensions
+    internal static class PrintExtensions
     {
-        public static void Print(this Element2 element)
+        public static void Print(this Element element)
         {
             Console.WriteLine(element.Representation);
         }

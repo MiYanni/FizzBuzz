@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace FizzBuzz.ObjectOriented.Oop3
 {
-    internal sealed class Element3
+    internal sealed class Element
     {
         public int Value { get; }
 
@@ -24,7 +24,7 @@ namespace FizzBuzz.ObjectOriented.Oop3
             value => true
         };
 
-        public Element3(int value)
+        public Element(int value)
         {
             _representation = DetermineRepresentation(value);
             Value = value;

@@ -19,7 +19,7 @@ namespace FizzBuzz.ObjectOriented
         // Pass 10: 78
         public static void Solution()
         {
-            Enumerable.Range(1, 100).Select(value => new Element3(value)).ForEach(Console.WriteLine);
+            Enumerable.Range(1, 100).Select(value => new Element(value)).ForEach(Console.WriteLine);
         }
     }
 }

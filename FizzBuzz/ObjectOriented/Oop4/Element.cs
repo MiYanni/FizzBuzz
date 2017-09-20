@@ -2,7 +2,7 @@
 
 namespace FizzBuzz.ObjectOriented.Oop4
 {
-    internal sealed class Element4
+    internal sealed class Element
     {
         public int Value { get; }
         private readonly string _representation;
@@ -32,7 +32,7 @@ namespace FizzBuzz.ObjectOriented.Oop4
             v => Strings.FizzBuzz
         };
 
-        public Element4(int value)
+        public Element(int value)
         {
             _representation = DetermineRepresentation(value);
             Value = value;

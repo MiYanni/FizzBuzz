@@ -4,7 +4,7 @@ using FizzBuzz.Extensions;
 
 namespace FizzBuzz.ObjectOriented.Oop1
 {
-    internal static class Oop1Extensions
+    internal static class PrintExtensions
     {
         public static IPrintable ToPrintable(this int value)
         {

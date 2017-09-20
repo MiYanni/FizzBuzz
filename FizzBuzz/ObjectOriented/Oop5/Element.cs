@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace FizzBuzz.ObjectOriented.Oop5
 {
-    internal sealed class Element5
+    internal sealed class Element
     {
         public int Value { get; }
         private readonly string _representation;
@@ -38,7 +38,7 @@ namespace FizzBuzz.ObjectOriented.Oop5
             new PredicateRepresenter(v => true, v => v.ToString(CultureInfo.InvariantCulture))
         };
 
-        public Element5(int value)
+        public Element(int value)
         {
             _representation = DetermineRepresentation(value);
             Value = value;

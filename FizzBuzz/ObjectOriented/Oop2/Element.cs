@@ -4,12 +4,12 @@ using System.Globalization;
 
 namespace FizzBuzz.ObjectOriented.Oop2
 {
-    internal sealed class Element2
+    internal sealed class Element
     {
         public int Value { get; }
         public string Representation { get; }
 
-        public Element2(int value)
+        public Element(int value)
         : this(value, DetermineRepresentation(value))
         {
         }
@@ -26,7 +26,7 @@ namespace FizzBuzz.ObjectOriented.Oop2
             return selections[selector.FindIndex(condition => condition)];
         }
 
-        private Element2(int value, string representation)
+        private Element(int value, string representation)
         {
             Value = value;
             Representation = representation;
