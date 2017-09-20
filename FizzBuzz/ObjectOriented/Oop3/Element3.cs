@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace FizzBuzz.ObjectOriented
+namespace FizzBuzz.ObjectOriented.Oop3
 {
     internal sealed class Element3
     {
-        public int Value { get; private set; }
+        public int Value { get; }
 
         private readonly string _representation;
         private static readonly List<Func<int,string>> Selections = new List<Func<int,string>> 

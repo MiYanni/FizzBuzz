@@ -1,19 +1,11 @@
 ﻿using System.Globalization;
 
-namespace FizzBuzz.ObjectOriented
+namespace FizzBuzz.ObjectOriented.Oop4
 {
-    internal sealed class FizzBuzzElement4
+    internal sealed class Element4
     {
-        public int Value { get; private set; }
+        public int Value { get; }
         private readonly string _representation;
-
-        //private enum FizzBuzzIndex
-        //{
-        //    Value = 0,
-        //    Fizz = 1,
-        //    Buzz = 2,
-        //    FizzBuzz = 3
-        //}
 
         private struct Strings
         {
@@ -40,7 +32,7 @@ namespace FizzBuzz.ObjectOriented
             v => Strings.FizzBuzz
         };
 
-        public FizzBuzzElement4(int value)
+        public Element4(int value)
         {
             _representation = DetermineRepresentation(value);
             Value = value;

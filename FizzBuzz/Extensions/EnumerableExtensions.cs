@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace FizzBuzz.Extensions
 {
-    public static class EnumerableExtensions
+    internal static class EnumerableExtensions
     {
         public static IEnumerable<TSource> Replace<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate, Func<TSource, TSource> replacer)
         {

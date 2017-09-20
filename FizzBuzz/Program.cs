@@ -5,6 +5,10 @@ using System.Globalization;
 using System.Linq;
 using FizzBuzz.Extensions;
 using FizzBuzz.ObjectOriented;
+using FizzBuzz.ObjectOriented.Oop2;
+using FizzBuzz.ObjectOriented.Oop3;
+using FizzBuzz.ObjectOriented.Oop4;
+using FizzBuzz.ObjectOriented.Oop5;
 
 namespace FizzBuzz
 {
@@ -28,246 +32,85 @@ namespace FizzBuzz
             Console.ReadKey();
         }
 
-        ////FizzBuzz1:
-        ////Pass 1: 162
-        ////Pass 2: 80
-        ////Pass 3: 86
-        ////Pass 4: 97
-        ////Pass 5: 79
-        ////Pass 6: 83
-        ////Pass 7: 87
-        ////Pass 8: 84
-        ////Pass 9: 83
-        ////Pass 10: 82
-        //private static void FizzBuzz1()
+        ////FizzBuzzOop:
+        ////Pass 1: 141
+        ////Pass 2: 94
+        ////Pass 3: 83
+        ////Pass 4: 100
+        ////Pass 5: 100
+        ////Pass 6: 100
+        ////Pass 7: 100
+        ////Pass 8: 100
+        ////Pass 9: 100
+        ////Pass 10: 99
+        //private static void FizzBuzzOop()
         //{
-        //    Enumerable.Range(1, 100)
-        //        .Replace(v => v.IsDivisibleBy(15), v => -11)
-        //        .Replace(v => v.IsDivisibleBy(5), v => -7)
-        //        .Replace(v => v.IsDivisibleBy(3), v => -2)
-        //        .Select(v => v.ToString(CultureInfo.InvariantCulture))
-        //        .Replace(s => s.Equals("-2"), s => "Fizz")
-        //        .Replace(s => s.Equals("-7"), s => "Buzz")
-        //        .Replace(s => s.Equals("-11"), s => "FizzBuzz")
-        //        .ToList().ForEach(Console.WriteLine);
+        //    Enumerable.Range(1, 100).ToList().ForEach(value => value.ToPrintable().Print());
         //}
 
-        ////FizzBuzz2:
-        ////Pass 1: 161
-        ////Pass 2: 83
-        ////Pass 3: 81
-        ////Pass 4: 80
-        ////Pass 5: 79
-        ////Pass 6: 82
-        ////Pass 7: 85
-        ////Pass 8: 78
-        ////Pass 9: 79
-        ////Pass 10: 82
-        //private static void FizzBuzz2()
-        //{
-        //    Enumerable.Range(1, 100)
-        //        .Select(v => new { Value = v, Name = String.Empty })
-        //        .Replace(vn => vn.Value.IsDivisibleBy(3), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Fizz") })
-        //        .Replace(vn => vn.Value.IsDivisibleBy(5), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Buzz") })
-        //        .Replace(vn => String.IsNullOrEmpty(vn.Name), vn => new { vn.Value, Name = vn.Value.ToString(CultureInfo.InvariantCulture) })
-        //        .Select(vn => vn.Name)
-        //        .ToList().ForEach(Console.WriteLine);
-        //}
-
-        ////FizzBuzz3:
-        ////Pass 1: 152
+        ////FizzBuzzOop2:
+        ////Pass 1: 129
         ////Pass 2: 86
         ////Pass 3: 81
-        ////Pass 4: 82
-        ////Pass 5: 99
-        ////Pass 6: 85
-        ////Pass 7: 87
-        ////Pass 8: 81
-        ////Pass 9: 91
-        ////Pass 10: 91
-        //private static void FizzBuzz3()
+        ////Pass 4: 79
+        ////Pass 5: 80
+        ////Pass 6: 79
+        ////Pass 7: 82
+        ////Pass 8: 82
+        ////Pass 9: 80
+        ////Pass 10: 80
+        //private static void FizzBuzzOop2()
         //{
-        //    (new int[100])
-        //        .Select((v, i) => new { Value = i + 1, Name = String.Empty })
-        //        .Replace(vn => vn.Value.IsDivisibleBy(3), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Fizz") })
-        //        .Replace(vn => vn.Value.IsDivisibleBy(5), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Buzz") })
-        //        .Replace(vn => String.IsNullOrEmpty(vn.Name), vn => new { vn.Value, Name = vn.Value.ToString(CultureInfo.InvariantCulture) })
-        //        .Select(vn => vn.Name)
-        //        .ToList().ForEach(Console.WriteLine);
+        //    Enumerable.Range(1, 100).Select(value => new Element2(value)).ForEach(Element2Extensions.Print);
         //}
 
-        //private sealed class ValueName
+        ////FizzBuzzOop3:
+        ////Pass 1: 134
+        ////Pass 2: 83
+        ////Pass 3: 85
+        ////Pass 4: 76
+        ////Pass 5: 79
+        ////Pass 6: 83
+        ////Pass 7: 78
+        ////Pass 8: 77
+        ////Pass 9: 82
+        ////Pass 10: 78
+        //private static void FizzBuzzOop3()
         //{
-        //    public int Value { get; set; }
-
-        //    public string Name { get; set; }
+        //    Enumerable.Range(1, 100).Select(value => new Element3(value)).ForEach(Console.WriteLine);
         //}
 
-        ////FizzBuzz4:
-        ////Pass 1: 175
-        ////Pass 2: 89
-        ////Pass 3: 83
-        ////Pass 4: 82
-        ////Pass 5: 84
-        ////Pass 6: 86
-        ////Pass 7: 86
-        ////Pass 8: 86
-        ////Pass 9: 88
-        ////Pass 10: 85
-        //private static void FizzBuzz4()
-        //{
-        //    Enumerable.Range(1, 100)
-        //        .Select(v => new ValueName { Value = v, Name = String.Empty })
-        //        .Replace(vn => vn.Value.IsDivisibleBy(3), vn => { vn.Name += "Fizz"; return vn; })
-        //        .Replace(vn => vn.Value.IsDivisibleBy(5), vn => { vn.Name += "Buzz"; return vn; })
-        //        .Replace(vn => String.IsNullOrEmpty(vn.Name), vn => { vn.Name = vn.Value.ToString(CultureInfo.InvariantCulture); return vn; })
-        //        .Select(vn => vn.Name)
-        //        .ToList().ForEach(Console.WriteLine);
-        //}
-
-        ////FizzBuzz5:
-        ////Pass 1: 171
-        ////Pass 2: 92
-        ////Pass 3: 81
-        ////Pass 4: 81
-        ////Pass 5: 82
-        ////Pass 6: 84
-        ////Pass 7: 90
-        ////Pass 8: 85
-        ////Pass 9: 84
-        ////Pass 10: 85
-        //private static void FizzBuzz5()
-        //{
-        //    Enumerable.Range(1, 100)
-        //        .Select(v => new ValueName { Value = v, Name = String.Empty })
-        //        .Replace(vn => vn.Value.IsDivisibleBy(3), vn => { vn.Name = String.Join(String.Empty, vn.Name, "Fizz"); return vn; })
-        //        .Replace(vn => vn.Value.IsDivisibleBy(5), vn => { vn.Name = String.Join(String.Empty, vn.Name, "Buzz"); return vn; })
-        //        .Replace(vn => String.IsNullOrEmpty(vn.Name), vn => { vn.Name = vn.Value.ToString(CultureInfo.InvariantCulture); return vn; })
-        //        .Select(vn => vn.Name)
-        //        .ToList().ForEach(Console.WriteLine);
-        //}
-
-        ////FizzBuzz6:
-        ////Pass 1: 150
-        ////Pass 2: 85
-        ////Pass 3: 84
-        ////Pass 4: 84
-        ////Pass 5: 83
-        ////Pass 6: 84
-        ////Pass 7: 99
-        ////Pass 8: 89
-        ////Pass 9: 83
-        ////Pass 10: 82
-        //private static void FizzBuzz6()
-        //{
-        //    Enumerable.Range(1, 100)
-        //        .Select(v => new { Value = v, Name = String.Empty })
-        //        .Replace(vn => vn.Value.IsDivisibleBy(3), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Fizz") })
-        //        .Replace(vn => vn.Value.IsDivisibleBy(5), vn => new { vn.Value, Name = String.Join(String.Empty, vn.Name, "Buzz") })
-        //        .Select(vn => String.IsNullOrEmpty(vn.Name) ? vn.Value.ToString(CultureInfo.InvariantCulture) : vn.Name)
-        //        .ToList().ForEach(Console.WriteLine);
-        //}
-
-        ////FizzBuzz7:
-        ////Pass 1: 136
+        ////FizzBuzzOop4:
+        ////Pass 1: 137
         ////Pass 2: 80
-        ////Pass 3: 83
-        ////Pass 4: 84
-        ////Pass 5: 87
-        ////Pass 6: 88
-        ////Pass 7: 88
-        ////Pass 8: 90
-        ////Pass 9: 87
-        ////Pass 10: 89
-        //private static void FizzBuzz7()
+        ////Pass 3: 80
+        ////Pass 4: 77
+        ////Pass 5: 78
+        ////Pass 6: 80
+        ////Pass 7: 78
+        ////Pass 8: 81
+        ////Pass 9: 78
+        ////Pass 10: 76
+        //private static void FizzBuzzOop4()
         //{
-        //    Enumerable.Range(1, 100)
-        //        .Select(v => new { Value = v, Name = String.Empty })
-        //        .Replace(vn => vn.Value.IsDivisibleBy(3), vn => new { vn.Value, Name = vn.Name.JoinExt(String.Empty, "Fizz") })
-        //        .Replace(vn => vn.Value.IsDivisibleBy(5), vn => new { vn.Value, Name = vn.Name.JoinExt(String.Empty, "Buzz") })
-        //        .Select(vn => vn.Name.IfNullOrEmptyThenDefault(vn.Value.ToStringInvariant()))
-        //        .ForEach(Console.WriteLine);
+        //    Enumerable.Range(1, 100).Select(value => new Element4(value)).ForEach(Console.WriteLine);
         //}
 
-        //FizzBuzzOop:
-        //Pass 1: 141
-        //Pass 2: 94
-        //Pass 3: 83
-        //Pass 4: 100
-        //Pass 5: 100
-        //Pass 6: 100
-        //Pass 7: 100
-        //Pass 8: 100
-        //Pass 9: 100
-        //Pass 10: 99
-        private static void FizzBuzzOop()
-        {
-            Enumerable.Range(1, 100).ToList().ForEach(value => value.ToPrintable().Print());
-        }
-
-        //FizzBuzzOop2:
-        //Pass 1: 129
-        //Pass 2: 86
-        //Pass 3: 81
-        //Pass 4: 79
-        //Pass 5: 80
-        //Pass 6: 79
-        //Pass 7: 82
-        //Pass 8: 82
-        //Pass 9: 80
-        //Pass 10: 80
-        private static void FizzBuzzOop2()
-        {
-            Enumerable.Range(1, 100).Select(value => new Element2(value)).ForEach(Element2Extensions.Print);
-        }
-
-        //FizzBuzzOop3:
-        //Pass 1: 134
-        //Pass 2: 83
-        //Pass 3: 85
-        //Pass 4: 76
-        //Pass 5: 79
-        //Pass 6: 83
-        //Pass 7: 78
-        //Pass 8: 77
-        //Pass 9: 82
-        //Pass 10: 78
-        private static void FizzBuzzOop3()
-        {
-            Enumerable.Range(1, 100).Select(value => new Element3(value)).ForEach(Console.WriteLine);
-        }
-
-        //FizzBuzzOop4:
-        //Pass 1: 137
-        //Pass 2: 80
-        //Pass 3: 80
-        //Pass 4: 77
-        //Pass 5: 78
-        //Pass 6: 80
-        //Pass 7: 78
-        //Pass 8: 81
-        //Pass 9: 78
-        //Pass 10: 76
-        private static void FizzBuzzOop4()
-        {
-            Enumerable.Range(1, 100).Select(value => new FizzBuzzElement4(value)).ForEach(Console.WriteLine);
-        }
-
-        //FizzBuzzOop5:
-        //Pass 1: 136
-        //Pass 2: 81
-        //Pass 3: 78
-        //Pass 4: 78
-        //Pass 5: 81
-        //Pass 6: 79
-        //Pass 7: 78
-        //Pass 8: 82
-        //Pass 9: 79
-        //Pass 10: 80
-        private static void FizzBuzzOop5()
-        {
-            Enumerable.Range(1, 100).Select(value => new FizzBuzzElement5(value)).ForEach(Console.WriteLine);
-        }
+        ////FizzBuzzOop5:
+        ////Pass 1: 136
+        ////Pass 2: 81
+        ////Pass 3: 78
+        ////Pass 4: 78
+        ////Pass 5: 81
+        ////Pass 6: 79
+        ////Pass 7: 78
+        ////Pass 8: 82
+        ////Pass 9: 79
+        ////Pass 10: 80
+        //private static void FizzBuzzOop5()
+        //{
+        //    Enumerable.Range(1, 100).Select(value => new Element5(value)).ForEach(Console.WriteLine);
+        //}
 
         // TIME WHILE PLUGGED IN
         private static void PrintNumbers()

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace FizzBuzz.ObjectOriented
+namespace FizzBuzz.ObjectOriented.Oop1
 {
     internal class Element : IPrintable
     {

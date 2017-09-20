@@ -1,4 +1,4 @@
-﻿namespace FizzBuzz.ObjectOriented
+﻿namespace FizzBuzz.ObjectOriented.Oop1
 {
     internal class FizzBuzz : Element
     {

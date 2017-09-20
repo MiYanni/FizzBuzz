@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace FizzBuzz.ObjectOriented
+namespace FizzBuzz.ObjectOriented.Oop2
 {
     internal sealed class Element2
     {
-        public int Value { get; private set; }
-        public string Representation { get; private set; }
+        public int Value { get; }
+        public string Representation { get; }
 
         public Element2(int value)
         : this(value, DetermineRepresentation(value))
@@ -35,14 +35,6 @@ namespace FizzBuzz.ObjectOriented
         public override string ToString()
         {
             return Representation;
-        }
-    }
-
-    internal static class Element2Extensions
-    {
-        public static void Print(this Element2 element)
-        {
-            Console.WriteLine(element.Representation);
         }
     }
 }

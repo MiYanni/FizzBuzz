@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Globalization;
 
-namespace FizzBuzz.ObjectOriented
+namespace FizzBuzz.ObjectOriented.Oop5
 {
-    internal sealed class FizzBuzzElement5
+    internal sealed class Element5
     {
-        public int Value { get; private set; }
+        public int Value { get; }
         private readonly string _representation;
 
         private delegate string Representer<in T>(T obj);
@@ -20,8 +20,8 @@ namespace FizzBuzz.ObjectOriented
 
         private sealed class PredicateRepresenter
         {
-            public Predicate<int> Predicate { get; private set; }
-            public Representer<int> Representer { get; private set; }
+            public Predicate<int> Predicate { get; }
+            public Representer<int> Representer { get; }
 
             public PredicateRepresenter(Predicate<int> predicate, Representer<int> representer)
             {
@@ -38,7 +38,7 @@ namespace FizzBuzz.ObjectOriented
             new PredicateRepresenter(v => true, v => v.ToString(CultureInfo.InvariantCulture))
         };
 
-        public FizzBuzzElement5(int value)
+        public Element5(int value)
         {
             _representation = DetermineRepresentation(value);
             Value = value;
