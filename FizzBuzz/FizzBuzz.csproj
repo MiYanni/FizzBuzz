@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Extensions\EnumerableExtensions.cs" />
+    <Compile Include="Extensions\Functional.cs" />
     <Compile Include="Extensions\NumericExtensionscs.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="ObjectOriented\Object5.cs" />
@@ -76,6 +77,11 @@
     <Compile Include="SingleStatement\Single2.cs" />
     <Compile Include="SingleStatement\Single1.cs" />
     <Compile Include="SingleStatement\ValueName.cs" />
+    <Compile Include="Traditional\Functional1.cs" />
+    <Compile Include="Traditional\Internet1.cs" />
+    <Compile Include="Traditional\Ternary2.cs" />
+    <Compile Include="Traditional\Ternary1.cs" />
+    <Compile Include="Traditional\Normal1.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

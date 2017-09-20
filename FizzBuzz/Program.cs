@@ -1,14 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Globalization;
 using System.Linq;
 using FizzBuzz.Extensions;
-using FizzBuzz.ObjectOriented;
-using FizzBuzz.ObjectOriented.Oop2;
-using FizzBuzz.ObjectOriented.Oop3;
-using FizzBuzz.ObjectOriented.Oop4;
-using FizzBuzz.ObjectOriented.Oop5;
 
 namespace FizzBuzz
 {
@@ -47,143 +41,143 @@ namespace FizzBuzz
             }
         }
 
-        //FizzBuzzNormal:
-        //Pass 1: 160
-        //Pass 2: 119
-        //Pass 3: 121
-        //Pass 4: 123
-        //Pass 5: 122
-        //Pass 6: 124
-        //Pass 7: 126
-        //Pass 8: 118
-        //Pass 9: 127
-        //Pass 10: 120
-        private static void FizzBuzzNormal()
-        {
-            const string fizz = "Fizz";
-            const string buzz = "Buzz";
-            for (var value = 1; value <= 100; value++)
-            {
-                var isBy3 = value % 3 == 0;
-                var isBy5 = value % 5 == 0;
-                if (isBy3)
-                {
-                    Console.Write(fizz);
-                }
-                if (isBy5)
-                {
-                    Console.Write(buzz);
-                }
-                if (!isBy3 && !isBy5)
-                {
-                    Console.Write(value);
-                }
-                Console.Write(Environment.NewLine);
-            }
-        }
+        ////FizzBuzzNormal:
+        ////Pass 1: 160
+        ////Pass 2: 119
+        ////Pass 3: 121
+        ////Pass 4: 123
+        ////Pass 5: 122
+        ////Pass 6: 124
+        ////Pass 7: 126
+        ////Pass 8: 118
+        ////Pass 9: 127
+        ////Pass 10: 120
+        //private static void FizzBuzzNormal()
+        //{
+        //    const string fizz = "Fizz";
+        //    const string buzz = "Buzz";
+        //    for (var value = 1; value <= 100; value++)
+        //    {
+        //        var isBy3 = value % 3 == 0;
+        //        var isBy5 = value % 5 == 0;
+        //        if (isBy3)
+        //        {
+        //            Console.Write(fizz);
+        //        }
+        //        if (isBy5)
+        //        {
+        //            Console.Write(buzz);
+        //        }
+        //        if (!isBy3 && !isBy5)
+        //        {
+        //            Console.Write(value);
+        //        }
+        //        Console.Write(Environment.NewLine);
+        //    }
+        //}
 
-        //FizzBuzzTernary:
-        //Pass 1: 131
-        //Pass 2: 98
-        //Pass 3: 99
-        //Pass 4: 94
-        //Pass 5: 95
-        //Pass 6: 94
-        //Pass 7: 99
-        //Pass 8: 95
-        //Pass 9: 95
-        //Pass 10: 94
-        private static void FizzBuzzTernary()
-        {
-            const string fizz = "Fizz";
-            const string buzz = "Buzz";
-            const string fizzBuzz = fizz + buzz;
-            for (var value = 1; value <= 100; value++)
-            {
-                var isBy3 = value % 3 == 0;
-                var isBy5 = value % 5 == 0;
-                Console.WriteLine(
-                (isBy3 && isBy5) ? fizzBuzz :
-                isBy3 ? fizz :
-                isBy5 ? buzz :
-                value.ToString(CultureInfo.InvariantCulture));
-            }
-        }
+        ////FizzBuzzTernary:
+        ////Pass 1: 131
+        ////Pass 2: 98
+        ////Pass 3: 99
+        ////Pass 4: 94
+        ////Pass 5: 95
+        ////Pass 6: 94
+        ////Pass 7: 99
+        ////Pass 8: 95
+        ////Pass 9: 95
+        ////Pass 10: 94
+        //private static void FizzBuzzTernary()
+        //{
+        //    const string fizz = "Fizz";
+        //    const string buzz = "Buzz";
+        //    const string fizzBuzz = fizz + buzz;
+        //    for (var value = 1; value <= 100; value++)
+        //    {
+        //        var isBy3 = value % 3 == 0;
+        //        var isBy5 = value % 5 == 0;
+        //        Console.WriteLine(
+        //        (isBy3 && isBy5) ? fizzBuzz :
+        //        isBy3 ? fizz :
+        //        isBy5 ? buzz :
+        //        value.ToString(CultureInfo.InvariantCulture));
+        //    }
+        //}
 
-        //FizzBuzzTernary2:
-        //Pass 1: 127
-        //Pass 2: 95
-        //Pass 3: 80
-        //Pass 4: 79
-        //Pass 5: 81
-        //Pass 6: 82
-        //Pass 7: 85
-        //Pass 8: 89
-        //Pass 9: 81
-        //Pass 10: 79
-        private static void FizzBuzzTernary2()
-        {
-            var createFizzBuzz = new Func<int, string>(value =>
-                (value % 3 == 0 ? "Fizz" : String.Empty).JoinExt(String.Empty, value % 5 == 0 ? "Buzz" : String.Empty));
-            for (var i = 1; i <= 100; Console.WriteLine((createFizzBuzz(i).IsNullOrEmpty() ? i.ToStringInvariant() : createFizzBuzz(i)), ++i)) { }
-        }
+        ////FizzBuzzTernary2:
+        ////Pass 1: 127
+        ////Pass 2: 95
+        ////Pass 3: 80
+        ////Pass 4: 79
+        ////Pass 5: 81
+        ////Pass 6: 82
+        ////Pass 7: 85
+        ////Pass 8: 89
+        ////Pass 9: 81
+        ////Pass 10: 79
+        //private static void FizzBuzzTernary2()
+        //{
+        //    var createFizzBuzz = new Func<int, string>(value =>
+        //        (value % 3 == 0 ? "Fizz" : String.Empty).JoinExt(String.Empty, value % 5 == 0 ? "Buzz" : String.Empty));
+        //    for (var i = 1; i <= 100; Console.WriteLine((createFizzBuzz(i).IsNullOrEmpty() ? i.ToStringInvariant() : createFizzBuzz(i)), ++i)) { }
+        //}
         
-        // NOT TIMED YET.
-        private static void FizzBuzzFuncBasic()
-        {
-            Enumerable.Range(1, 100).Select(i => {
-                if (i%3 == 0 && i%5 == 0)
-                    return "FizzBuzz";
-                if (i%3 == 0)
-                    return "Fizz";
-                if (i%5 == 0)
-                    return "Buzz";
-                return i.ToString(CultureInfo.InvariantCulture);
-            }).ForEach(i => Debug.WriteLine(i));
-        }
+        //// NOT TIMED YET.
+        //private static void FizzBuzzFuncBasic()
+        //{
+        //    Enumerable.Range(1, 100).Select(i => {
+        //        if (i%3 == 0 && i%5 == 0)
+        //            return "FizzBuzz";
+        //        if (i%3 == 0)
+        //            return "Fizz";
+        //        if (i%5 == 0)
+        //            return "Buzz";
+        //        return i.ToString(CultureInfo.InvariantCulture);
+        //    }).ForEach(i => Debug.WriteLine(i));
+        //}
 
-        //FizzBuzzInternet:
-        //Pass 1: 138
-        //Pass 2: 83
-        //Pass 3: 79
-        //Pass 4: 94
-        //Pass 5: 81
-        //Pass 6: 82
-        //Pass 7: 88
-        //Pass 8: 83
-        //Pass 9: 86
-        //Pass 10: 80
-        // http://derreckdean.wordpress.com/2011/05/09/fizzbuzz-in-one-line-c-linq/
-        private static void FizzBuzzInternet()
-        {
-            Enumerable.Range(1, 100).ToList().ForEach(i => Console.WriteLine(
-                (i % 3 == 0 && i % 5 == 0) ? "FizzBuzz" :
-                (i % 5 == 0) ? "Buzz" :
-                (i % 3 == 0) ? "Fizz" :
-                i.ToString(CultureInfo.InvariantCulture)));
-        }
+        ////FizzBuzzInternet:
+        ////Pass 1: 138
+        ////Pass 2: 83
+        ////Pass 3: 79
+        ////Pass 4: 94
+        ////Pass 5: 81
+        ////Pass 6: 82
+        ////Pass 7: 88
+        ////Pass 8: 83
+        ////Pass 9: 86
+        ////Pass 10: 80
+        //// http://derreckdean.wordpress.com/2011/05/09/fizzbuzz-in-one-line-c-linq/
+        //private static void FizzBuzzInternet()
+        //{
+        //    Enumerable.Range(1, 100).ToList().ForEach(i => Console.WriteLine(
+        //        (i % 3 == 0 && i % 5 == 0) ? "FizzBuzz" :
+        //        (i % 5 == 0) ? "Buzz" :
+        //        (i % 3 == 0) ? "Fizz" :
+        //        i.ToString(CultureInfo.InvariantCulture)));
+        //}
 
         //private static readonly Func<int, int, bool> DivisibleBy = (v, d) => (v % d) == 0;
     }
 
-    public static class Functional
-    {
-        public static void ForLoop<T>(T initializer, Func<T, bool> condition, Func<T, T> iterator, Action<T> body)
-        {
-            for (var i = initializer; condition(i); i = iterator(i))
-            {
-                body(i);
-            }
-        }
+    //public static class Functional
+    //{
+    //    public static void ForLoop<T>(T initializer, Func<T, bool> condition, Func<T, T> iterator, Action<T> body)
+    //    {
+    //        for (var i = initializer; condition(i); i = iterator(i))
+    //        {
+    //            body(i);
+    //        }
+    //    }
 
-        public static void ForLoop<T>(T initializer, Func<T, bool> condition, Func<T, T> iterator, Func<T, bool> body)
-        {
-            for (var i = initializer; condition(i); i = iterator(i))
-            {
-                if (!body(i)) break;
-            }
-        }
-    }
+    //    public static void ForLoop<T>(T initializer, Func<T, bool> condition, Func<T, T> iterator, Func<T, bool> body)
+    //    {
+    //        for (var i = initializer; condition(i); i = iterator(i))
+    //        {
+    //            if (!body(i)) break;
+    //        }
+    //    }
+    //}
 
     //public static class NumericExtensions
     //{
